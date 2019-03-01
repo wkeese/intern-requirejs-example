@@ -2,7 +2,8 @@
 	"name": "intern-requirejs-example",
 	"version": "1.0.0",
 	"dependencies": {
-		"dcl": "2.x"
+		"dcl": "2.x",
+		"http-server": "^0.11.1"
 	},
 	"devDependencies": {
 		"grunt": "~0.4.2",

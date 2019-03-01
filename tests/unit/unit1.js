@@ -1,16 +1,16 @@
 define([
-	"dcl/dcl"
+	"intern-requirejs-example/Class1"
 ], function (
-	dcl
+	Class1
 ) {
-	// Unit test example
-	var registerSuite = intern.getPlugin('interface.object');
-	var assert = intern.getPlugin('chai');
-
+	var registerSuite = intern.getPlugin('interface.object').registerSuite;
+	var assert = intern.getPlugin('chai').assert;
 
 	registerSuite("unit1", {
 		unit1_test1: function () {
-			assert(dcl, "dcl defined");
+			var instance1 = new Class1();
+			assert.strictEqual(instance1.add(3, 5), 8, "Class1#add");
+			assert.strictEqual(instance1.subtract(5, 3), 2, "Class1#subtract");
 		}
 	});
 });
