@@ -1,0 +1,13 @@
+{
+	"name": "intern-requirejs-example",
+	"version": "1.0.0",
+	"dependencies": {
+		"dcl": "2.x"
+	},
+	"devDependencies": {
+		"grunt": "~0.4.2",
+		"intern": "4.4.x",
+		"requirejs": "^2.3.6"
+	},
+	"private": true
+}
