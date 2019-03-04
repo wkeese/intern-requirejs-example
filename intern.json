@@ -30,6 +30,10 @@
 		}
 	},
 
+	"tunnelOptions": {
+		"drivers": [ "firefox", "internet explorer", "MicrosoftEdge" ]
+	},
+
 	"browser": {
 		"loader": {
 			"script": "./intern-requirejs-loader.js",
@@ -57,10 +61,14 @@
 		"**/*.js",
 		"!node_modules/**",
 		"!tests/**",
-		"!intern*"
+		"!intern*",
+		"!Gruntfile.js"
 	],
 
 	"configs": {
+		"local": {
+			"description": "Run tests on local system, automatically starting chromedriver"
+		},
 		"browserstack": {
 			"description": "Run tests on BrowserStack",
 			"tunnel": "browserstack",
