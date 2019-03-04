@@ -20,18 +20,10 @@
 					{
 						"name": "intern-requirejs-example",
 						"location": "."
-					},
-					{
-						"name": "dcl",
-						"location": "node_modules/dcl"
 					}
 				]
 			}
 		}
-	},
-
-	"tunnelOptions": {
-		"drivers": [ "firefox", "internet explorer", "MicrosoftEdge" ]
 	},
 
 	"browser": {
@@ -65,9 +57,23 @@
 		"!Gruntfile.js"
 	],
 
+	"tunnelOptions": {
+		"drivers": [ "firefox", "internet explorer", "MicrosoftEdge" ]
+	},
+
 	"configs": {
 		"local": {
 			"description": "Run tests on local system, automatically starting chromedriver"
+		},
+		"grid": {
+			"description": "Run against manually started selenium grid",
+			"tunnel": "null",
+			"environments": [
+				{ "browser": "MicrosoftEdge" },
+				{ "browser": "firefox" },
+				{ "browser": "chrome" }
+			]
+
 		},
 		"browserstack": {
 			"description": "Run tests on BrowserStack",
