@@ -61,6 +61,8 @@
 		"drivers": [ "firefox", "internet explorer", "MicrosoftEdge" ]
 	},
 
+	"myCustomVar": 123,
+
 	"configs": {
 		"local": {
 			"description": "Run tests on local system, automatically starting chromedriver"
