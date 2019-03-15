@@ -2,14 +2,11 @@
 	"environments": [
 		{
 			"browserName": "chrome",
-			"chromeOptions": {
-				"args": ["headless", "disable-gpu"]
-			},
 			"fixSessionCapabilities": "no-detect"
 		}
 	],
 
-	"leaveRemoteOpen": false,
+	"leaveRemoteOpen": true,
 
 	"node": {
 		"loader": {
@@ -75,7 +72,6 @@
 				{ "browser": "firefox" },
 				{ "browser": "chrome" }
 			]
-
 		},
 		"browserstack": {
 			"description": "Run tests on BrowserStack",

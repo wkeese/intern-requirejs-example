@@ -1,5 +1,20 @@
 <html>
+<head>
+	<script>
+		require = {
+			baseUrl: "../../../.."
+		}
+	</script>
+	<script src="../../node_modules/requirejs/require.js"></script>
+	<script>
+		require(["intern-requirejs-example/Class1"], function (Class1) {
+			var instance = new Class1();
+			document.getElementById("container").textContent = "1 + 1 = " + instance.add(1, 1);
+		});
+	</script>
+</head>
 <body>
 <h1>Functional test file</h1>
+<div id="container"></div>
 </body>
 </html>

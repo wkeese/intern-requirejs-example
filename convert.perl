@@ -1,6 +1,7 @@
 # Helper script to upgrade tests from Intern 3 to Intern 4.
 # Only works on tests that were written in the CommonJS-ish form of AMD,
 # i.e. the form where it calls require() to get each module.
+# Also doesn't handle tests with lifecycle methods.
 #
 # Usage:
 #   find . -name '*.js' -exec perl -0777 -pi convert.perl {} \;
@@ -17,6 +18,8 @@ s/require.['"]intern\!object['"]./intern.getPlugin('interface.object').registerS
 
 # Leadfoot files
 s/intern\/dojo\/node!leadfoot/@theintern\/leadfoot/g;
+s-require\("@theintern/leadfoot/helpers/pollUntil"\)-$1.default-
+s-require\("@theintern/leadfoot/keys"\)-$1.default-
 
 # Put test suite name as first argument to registerSuite() rather than in hash
 s/registerSuite\((\s*function\s*\(\s*\)\s*\{\s*return\s*\{\s*)name:\s*(['"][^'"]+['"]),/registerSuite($2, $1/g;
