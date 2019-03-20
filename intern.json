@@ -109,7 +109,7 @@
 			"description": "Run tests on SauceLabs",
 			"environments": [
 				{ "browserName": "MicrosoftEdge", "version": "17", "fixSessionCapabilities": false, "name": "intern-requirejs-example"},
-				{ "browserName": "internet explorer", "version": "11", "name": "intern-requirejs-example"},
+				{ "browserName": "internet explorer", "version": "11",  "fixSessionCapabilities": false, "name": "intern-requirejs-example"},
 				{ "browserName": "firefox", "version": "60", "platform": [ "Windows 10" ], "name": "intern-requirejs-example" },
 				{ "browserName": "chrome", "version": "68", "platform": [ "Windows 10" ], "name": "intern-requirejs-example" },
 				{ "browserName": "safari", "version": "11", "name": "intern-requirejs-example" },
@@ -127,7 +127,15 @@
 		"sauce-ie": {
 			"extends": ["sauce"],
 			"environments": [
-				{ "browserName": "internet explorer", "version": "11", "name": "intern-requirejs-example"}
+				{ "browserName": "internet explorer", "version": "11",  "fixSessionCapabilities": false,
+					"name": "intern-requirejs-example"}
+			]
+		},
+
+		"sauce-ios": {
+			"extends": ["sauce"],
+			"environments": [
+				{ "browserName": "iphone", "platform": "OS X 10.10", "version": "10.2", "deviceName": "iPad Retina", "name": "intern-requirejs-example" }
 			]
 		}
 	}
