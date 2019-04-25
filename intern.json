@@ -97,6 +97,15 @@
 			]
 		},
 
+		"browserstack-ios": {
+			"extends": ["browserstack"],
+			"environments": [
+				{   "browserName": "safari",
+					"device": "iPhone X",
+					"realMobile": "true",
+					"os_version": "11", "name": "intern-requirejs-example"}
+			]
+		},
 
 		"browserstack-ie": {
 			"extends": ["browserstack"],
@@ -135,7 +144,8 @@
 		"sauce-ios": {
 			"extends": ["sauce"],
 			"environments": [
-				{ "browserName": "iphone", "platform": "OS X 10.10", "version": "10.2", "deviceName": "iPad Retina", "name": "intern-requirejs-example" }
+				{ "browserName": "iphone", "platform": "OS X 10.10", "version": "10.2", "deviceName": "iPad Retina",
+					"fixSessionCapabilities": false, "name": "intern-requirejs-example" }
 			]
 		}
 	}
