@@ -13,15 +13,15 @@ s/^M//;
 s/[ \t]*var intern = require.['"]intern['"].\;[ \t]*//;
 
 # Intern plugins
-s/require..intern\/chai\!assert../intern.getPlugin\('chai'\).assert/g;
-s/require.['"]intern\!object['"]./intern.getPlugin('interface.object').registerSuite/g;
+s/require..intern\/chai\!assert../intern.getPlugin\("chai"\).assert/g;
+s/require.['"]intern\!object['"]./intern.getPlugin("interface.object").registerSuite/g;
 
 # Leadfoot files
 s/intern\/dojo\/node!leadfoot/@theintern\/leadfoot/g;
-s-require\("@theintern/leadfoot/helpers/pollUntil"\)-$1.default-
-s-require\("@theintern/leadfoot/keys"\)-$1.default-
+s-require.*keys"\)-require("\@theintern/leadfoot/keys").default-;
+s-require.*pollUntil"\)-require("\@theintern/leadfoot/helpers/pollUntil").default-;
 
 # Put test suite name as first argument to registerSuite() rather than in hash
-s/registerSuite\((\s*function\s*\(\s*\)\s*\{\s*return\s*\{\s*)name:\s*(['"][^'"]+['"]),/registerSuite($2, $1/g;
-s/registerSuite\(\{\s+name:\s*(['"][^'"]+['"]),/registerSuite($1, {/g;
+s/registerSuite\((\s*function\s*\(\s*\)\s*\{\s*return\s*\{\s*)"?name"?:\s*(['"][^'"]+['"]),/registerSuite($2, $1/g;
+s/registerSuite\(\{\s+"?name"?:\s*(['"][^'"]+['"]),/registerSuite($1, {/g;
 
