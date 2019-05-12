@@ -21,9 +21,17 @@ s/intern\/dojo\/node!leadfoot/@theintern\/leadfoot/g;
 s-require.*keys"\)-require("\@theintern/leadfoot/keys").default-;
 s-require.*pollUntil"\)-require("\@theintern/leadfoot/helpers/pollUntil").default-;
 
-# Move test suite name from the hash to the first argument to registerSuite().
-s/registerSuite\((.*?return\s*\{)\s*["']?name["']?:\s*(['"][^'"]+['"]),/registerSuite($2, $1/gs;
+# Move test suite name from the hash to the first argument of registerSuite().
+s/registerSuite\((.*?)name["']?:\s*(['"][^'"]+['"]),/registerSuite($2, $1/gs;
 
-# Rename setup() to before(), teardown() to after()
+# Rename setup() to before(), and teardown() to after()
 s/["']?setup["']?:/before:/;
 s/["']?teardown["']?:/after:/;
+
+# Clear trailing whitespace
+s/[ \t]+$//gm;
+
+# Delete blank lines after opening braces and before closing braces.
+s/\{[\n]+/{\n/gm;
+s/[\n]+(\s+\})/\n$1/gm;
+
