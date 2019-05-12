@@ -21,9 +21,8 @@ s/intern\/dojo\/node!leadfoot/@theintern\/leadfoot/g;
 s-require.*keys"\)-require("\@theintern/leadfoot/keys").default-;
 s-require.*pollUntil"\)-require("\@theintern/leadfoot/helpers/pollUntil").default-;
 
-# Put test suite name as first argument to registerSuite() rather than in hash
-s/registerSuite\((\s*function\s*\(\s*\)\s*\{.*return\s*\{\s*)"?name"?:\s*(['"][^'"]+['"]),/registerSuite($2, $1/gs;
-s/registerSuite\(\{\s+"?name"?:\s*(['"][^'"]+['"]),/registerSuite($1, {/g;
+# Move test suite name from the hash to the first argument to registerSuite().
+s/registerSuite\((.*?return\s*\{)\s*["']?name["']?:\s*(['"][^'"]+['"]),/registerSuite($2, $1/gs;
 
 # Rename setup() to before(), teardown() to after()
 s/["']?setup["']?:/before:/;
