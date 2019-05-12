@@ -25,3 +25,6 @@ s-require.*pollUntil"\)-require("\@theintern/leadfoot/helpers/pollUntil").defaul
 s/registerSuite\((\s*function\s*\(\s*\)\s*\{\s*return\s*\{\s*)"?name"?:\s*(['"][^'"]+['"]),/registerSuite($2, $1/g;
 s/registerSuite\(\{\s+"?name"?:\s*(['"][^'"]+['"]),/registerSuite($1, {/g;
 
+# Rename setup() to before(), teardown() to after()
+s/["']?setup["']?:/before:/;
+s/["']?teardown["']?:/after:/;
