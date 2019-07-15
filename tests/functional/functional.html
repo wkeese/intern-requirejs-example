@@ -10,6 +10,7 @@
 		require(["intern-requirejs-example/Class1"], function (Class1) {
 			var instance = new Class1();
 			document.getElementById("container").textContent = "1 + 1 = " + instance.add(1, 1);
+			document.getElementById("container").classList.add("ready");
 		});
 	</script>
 </head>

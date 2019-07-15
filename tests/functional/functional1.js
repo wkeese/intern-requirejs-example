@@ -11,7 +11,7 @@ define([
 		"functiona1_test1": function () {
 			return this.remote
 				.get(require.toUrl("./functional.html"))
-				.findById("container").getVisibleText().then(function (text) {
+				.findByCssSelector("#container.ready").getVisibleText().then(function (text) {
 						assert.strictEqual(text, "1 + 1 = 2");
 					})
 		}
