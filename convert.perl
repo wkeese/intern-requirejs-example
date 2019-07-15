@@ -4,13 +4,15 @@
 # Also doesn't handle tests with lifecycle methods.
 #
 # Usage:
+#   find . -name '*.js' -exec sed -i '' '/var intern =/d' {} \;
 #   find . -name '*.js' -exec perl -0777 -pi convert.perl {} \;
 
 # Some of our files have ^M in them for some reason...
 s/^M//;
 
 # Intern is now a global, so no require() needed.
-s/[ \t]*var intern = require.['"]intern['"].\;[ \t]*//;
+# But it's handled by the sed call above, I don't know how to delete lines with perl -p...
+# s/[ \t]*var intern = require.['"]intern['"].\;[ \t]*//;
 
 # Intern plugins
 s/require..intern\/chai\!assert../intern.getPlugin\("chai"\).assert/g;
@@ -32,6 +34,6 @@ s/["']?teardown["']?:/after:/;
 s/[ \t]+$//gm;
 
 # Delete blank lines after opening braces and before closing braces.
-s/\{[\n]+/{\n/gm;
-s/[\n]+(\s+\})/\n$1/gm;
+s/\{[\n]+/{\n/gms;
+s/[\n]+(\s+\})/\n$1/gms;
 
