@@ -60,6 +60,14 @@
 
 	"myCustomVar": 123,
 
+	"defaultTimeout": 240000,
+	"functionalTimeouts": {
+		"connectTimeout": 60000,
+		"executeAsync": 120000,
+		"find": 60000,
+		"pageLoad": 120000
+	},
+
 	"configs": {
 		"local": {
 			"description": "Run tests on local system, automatically starting chromedriver"
@@ -117,14 +125,11 @@
 		"sauce": {
 			"description": "Run tests on SauceLabs",
 			"environments": [
-				{ "browserName": "MicrosoftEdge", "version": "17", "fixSessionCapabilities": false, "name": "intern-requirejs-example"},
-				{ "browserName": "internet explorer", "version": "11",  "fixSessionCapabilities": false, "name": "intern-requirejs-example"},
-				{ "browserName": "firefox", "version": "60", "platform": [ "Windows 10" ], "name": "intern-requirejs-example" },
-				{ "browserName": "chrome", "version": "68", "platform": [ "Windows 10" ], "name": "intern-requirejs-example" },
-				{ "browserName": "safari", "version": "11", "name": "intern-requirejs-example" },
-				{ "browserName": "iphone", "platform": "OS X 10.10", "version": "10.2", "deviceName": "iPad Retina", "name": "intern-requirejs-example" },
-				{ "browserName": "android", "platform": "Linux", "version": "6.0",
-					"deviceName": "Android Emulator", "deviceType": "tablet", "name": "intern-requirejs-example" }
+				{ "browserName": "MicrosoftEdge", "fixSessionCapabilities": false, "name": "intern-requirejs-example"},
+				{ "browserName": "internet explorer", "version": "11", "fixSessionCapabilities": false, "name": "intern-requirejs-example"},
+				{ "browserName": "firefox", "platform": [ "Windows 10" ], "fixSessionCapabilities": false, "name": "intern-requirejs-example" },
+				{ "browserName": "chrome", "platform": [ "Windows 10" ], "fixSessionCapabilities": false, "name": "intern-requirejs-example" },
+				{ "browserName": "safari", "fixSessionCapabilities": false, "name": "intern-requirejs-example" }
 			],
 
 			"proxyPort": 9000,
@@ -147,6 +152,15 @@
 				{ "browserName": "iphone", "platform": "OS X 10.10", "version": "10.2", "deviceName": "iPad Retina",
 					"fixSessionCapabilities": false, "name": "intern-requirejs-example" }
 			]
+		},
+
+		"sauce-android": {
+			"extends": ["sauce"],
+			"environments": [
+				{ "browserName": "android", "platform": "Linux", "version": "6.0",
+					"deviceName": "Android Emulator", "deviceType": "tablet", "name": "intern-requirejs-example" }
+			]
 		}
+
 	}
 }
