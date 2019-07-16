@@ -2,7 +2,13 @@
 <head>
 	<script>
 		require = {
-			baseUrl: "../../../.."
+			baseUrl: "../../node_modules",
+			"packages": [
+				{
+					"name": "intern-requirejs-example",
+					"location": "../.."
+				}
+			]
 		}
 	</script>
 	<script src="../../node_modules/requirejs/require.js"></script>
