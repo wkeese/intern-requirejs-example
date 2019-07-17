@@ -28,8 +28,8 @@ s-require.*pollUntil"\)-require("\@theintern/leadfoot/helpers/pollUntil").defaul
 s/registerSuite\((.*?)?["']?name["']?:\s*(['"][^'"]+['"]),/registerSuite($2, $1/gs;
 
 # Rename setup() to before(), and teardown() to after()
-s/["']?setup["']?:/before:/;
-s/["']?teardown["']?:/after:/;
+s/["']?setup["']?:/before:/g;
+s/["']?teardown["']?:/after:/g;
 
 # Clear trailing whitespace
 s/[ \t]+$//gm;
